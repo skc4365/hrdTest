@@ -1,0 +1,72 @@
+show tables;
+
+-- --------------------------------
+
+DROP TABLE Book;
+create table Book(
+	BookID int,
+	Title varchar(30) not null,
+	Author varchar(30),
+	Publisher varchar(30),
+	Price int,
+	PubYear YEAR,
+	primary key(BookID),
+	check(Price >= 0)
+);
+desc Book;
+SELECT *
+FROM information_schema.TABLE_CONSTRAINTS
+WHERE TABLE_NAME = 'Book';
+
+select * from Book;
+insert into Book values(10, 'html', 'Author1', '한빛', '29000', '2018');
+-- --------------------------------
+create table Member(
+	MemberID int,
+	Name varchar(30) not null,
+	Phone varchar(30),
+	Address varchar(30)
+);
+desc Member;
+alter table Member
+add primary key(MemberID);
+
+
+
+-- --------------------------------
+drop table Rental;
+create table Rental(
+	RentalID char(4),
+	MemberID int,
+	BookID int,
+	RentDate Date not null,
+	ReturnDate Date null,
+	primary key(RentalID),
+	foreign key(MemberID) references Member(MemberID),
+	foreign key(BookID) references Book(BookID)
+);
+desc Rental;
+
+-- (1) 2020년 이후 출판된 도서를 검색하시오.
+
+
+-- (2) ‘홍길동’ 회원이 대출한 도서 목록을 출력하시오.
+
+
+-- (3) 반납하지 않은 도서를 검색하시오.
+
+
+-- (4) 도서별 대출 횟수를 출력하시오.
+
+
+-- (5) 가격이 가장 비싼 도서를 출력하시오.
+
+
+
+
+
+
+
+
+
+

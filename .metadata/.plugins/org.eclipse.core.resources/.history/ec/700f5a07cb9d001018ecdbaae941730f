@@ -1,0 +1,17 @@
+show tables;
+
+create table Employee(
+	EmpNo 	int 		primary key auto_increment,
+	EmpName varchar(30) not null unique,
+	Dept 	varchar(20) not null,
+	HireDate date 		not null,
+	Salary 	int 		check(Salary >= 2000000)
+);
+
+select * from Employee;
+
+-- ---------------------------------------------------------------
+-- (1) 사원 등록: Employee 테이블에 다음 데이터를 삽입하시오.
+insert into Employee(EmpName, Dept, HireDate, Salary) values('홍길동', '영업부', '2020-03-01', 2500000);
+insert into Employee(EmpName, Dept, HireDate, Salary) values('이순신', '인사부', '2019-07-15', 3200000);
+insert into Employee(EmpName, Dept, HireDate, Salary) values('강감찬', '개발부', '2021-01-10', 2800000);

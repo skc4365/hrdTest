@@ -1,0 +1,9 @@
+show tables;
+
+create table Employee(
+	EmpNo 	int 		primary key auto_increment,
+	EmpName varchar(30) not null,
+	Dept 	varchar(20) not null,
+	HireDate date 		not null,
+	Salary 	int 		check(Salary >= 2000000)
+);

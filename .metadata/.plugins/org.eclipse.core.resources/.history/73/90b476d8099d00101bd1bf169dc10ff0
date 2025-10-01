@@ -1,0 +1,10 @@
+package com.conn;
+
+public class DBConnection {
+
+	public static Object getConnection() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

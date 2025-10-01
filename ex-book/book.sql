@@ -1,0 +1,158 @@
+show tables;
+
+-- --------------------------------
+
+DROP TABLE Book;
+create table Book(
+	BookID int,
+	Title varchar(30) not null,
+	Author varchar(30),
+	Publisher varchar(30),
+	Price int,
+	PubYear YEAR,
+	primary key(BookID),
+	check(Price >= 0)
+);
+desc Book;
+SELECT *
+FROM information_schema.TABLE_CONSTRAINTS
+WHERE TABLE_NAME = 'Book';
+
+select * from Book;
+insert into Book values(10, 'html', 'Author1', '한빛', '29000', '2018');
+insert into Book values(20, 'css', 'Author2', '길벗', '30000', '2019');
+insert into Book values(30, 'js', 'Author3', '한빛', '32000', '2020');
+insert into Book values(40, 'figma', 'Author4', '길벗', '35000', '2020');
+insert into Book values(50, 'java', 'Author5', '한빛', '40000', '2020');
+insert into Book values(60, 'springboot', 'Author6', '에이콘', '38000', '2021');
+-- --------------------------------
+drop table Member;
+create table Member(
+	MemberID int,
+	Name varchar(30) not null,
+	Phone varchar(30),
+	Address varchar(30),
+	primary key(MemberID)
+);
+desc Member;
+--alter table Member
+--add primary key(MemberID);
+
+select * from Member;
+insert into Member values(901, '홍길동', '010-1111-0001', '경기도 수원시 수원역');
+insert into Member values(902, '세종대황', '010-2222-0001', '경기도 수원시 장안구');
+insert into Member values(903, '콩쥐', '010-3333-0001', '경기도 수원시 수원역');
+insert into Member values(904, '일지매', '010-4444-0001', '경기도 수원시 수원역');
+insert into Member values(905, '팥쥐', '010-5555-0001', '경기도 수원시 영통구');
+insert into Member values(906, '박길동', '010-6666-0001', '경기도 수원시 장안구');
+-- --------------------------------
+-- 도서대출 테이블
+drop table Rental;
+create table Rental(
+	RentalID char(4),
+	MemberID int,
+	BookID int,
+	RentDate Date not null,
+	ReturnDate Date null,
+	primary key(RentalID),
+	foreign key(MemberID) references Member(MemberID),
+	foreign key(BookID) references Book(BookID)
+);
+desc Rental;
+
+select * from Rental;
+insert into Rental values('R001', 901, 30, '2021-03-05', '2021-04-05');
+insert into Rental values('R002', 901, 50, '2021-04-10', '2021-05-10');
+insert into Rental values('R003', 902, 30, '2021-05-05', '2021-08-05');
+insert into Rental values('R004', 901, 60, '2021-06-10', '2021-09-10');
+insert into Rental(RentalID, MemberID, BookID, RentDate) 
+	values('R005', 903, 10, '2021-07-05');
+insert into Rental(RentalID, MemberID, BookID, RentDate)
+	values('R006', 901, 20, '2021-08-10');
+	
+-- --------------------------------
+SELECT *
+FROM information_schema.TABLE_CONSTRAINTS
+WHERE TABLE_NAME = 'Book';
+SELECT *
+FROM information_schema.TABLE_CONSTRAINTS
+WHERE TABLE_NAME = 'Member';
+SELECT *
+FROM information_schema.TABLE_CONSTRAINTS
+WHERE TABLE_NAME = 'Rental';
+	
+-- --------------------------------
+
+-- (1) 2020년 이상 출판된 도서를 검색하시오.
+select * 
+from Book 
+where PubYear >=  '2020';
+
+select title, PubYear
+from Book 
+where PubYear >=  '2020';
+
+-- (2) ‘홍길동’ 회원이 대출한 도서 목록을 출력하시오.
+select * 
+from Rental r
+inner join Member m
+	on r.MemberID = m.MemberID
+inner join Book b
+	on r.BookID = b.BookID
+where m.name = '홍길동';
+
+select b.title, m.name
+from Rental r
+inner join Member m
+	on r.MemberID = m.MemberID
+inner join Book b
+	on r.BookID = b.BookID
+where m.name = '홍길동';
+
+-- (3) 반납하지 않은 도서를 검색하시오.
+select *
+from Rental r
+inner join Book b
+	on r.BookID = b.BookID
+where ReturnDate is null;
+
+select b.title, r.rentDate, IFNull(r.returnDate, '') as returnDate
+from Rental r
+inner join Book b
+	on r.BookID = b.BookID
+where ReturnDate is null;
+
+-- (4) 도서별 대출 횟수를 출력하시오.
+select count(r.BookID) as 대출횟수, b.title
+from Rental r
+inner join Book b
+	on r.BookID = b.BookID
+group by r.BookID, b.title;
+
+-- (5) 가격이 가장 비싼 도서를 출력하시오.
+select *
+from Book
+order by Price DESC
+Limit 1;
+
+-- 최고가의 교재가 1개일 경우
+select title, Price
+from Book
+order by Price DESC
+Limit 1;
+
+-- 최고가의 교재가 2개 이상일 경우
+select title, Price
+from Book
+where Price = 
+	( select MAX(Price) from book );
+
+
+
+
+
+
+
+
+
+

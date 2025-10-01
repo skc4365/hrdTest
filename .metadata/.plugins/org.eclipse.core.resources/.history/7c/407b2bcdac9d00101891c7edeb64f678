@@ -1,0 +1,49 @@
+package com.ex;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import com.conn.DBConnection;
+
+public class Ex4 {
+	Connection conn = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+
+	public void result() {
+
+		try {
+			String SQL = "select count(r.BookID) as 대출횟수, b.title\r\n"
+					+ "from Rental r\r\n"
+					+ "inner join Book b\r\n"
+					+ "	on r.BookID = b.BookID\r\n"
+					+ "group by r.BookID, b.title";
+
+			conn = DBConnection.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+
+			rs = pstmt.executeQuery();
+
+			// rs 출력
+			System.out.println("(4) 도서별 대출 횟수를 출력하시오.");
+			while (rs.next()) {
+				String title = rs.getString("title");
+				System.out.print("책 제목: " + title + "\t");
+
+				String rentCnt = rs.getString("대출횟수");
+				System.out.print("대출횟수: " + rentCnt + "\t");
+
+				
+
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBConnection.close(rs, pstmt, conn);
+		}
+
+	}
+}

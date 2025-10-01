@@ -1,0 +1,187 @@
+package com.ex;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import com.conn.DBConnection;
+
+public class ExClass {
+	Connection conn = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+
+	public void deleteAll() {
+		String sql = "delete from Employee";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			conn = DBConnection.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			int rows = pstmt.executeUpdate();
+			System.out.println("----- " + rows + "모든행이 삭제됨 -----");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			// 깔끔하게 자원 해제
+			DBConnection.close(pstmt, conn);
+		}
+
+	}
+	
+	public static void setAuto_Increment() {
+		String sql = "alter table Employee auto_increment = 1";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			conn = DBConnection.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			int rows = pstmt.executeUpdate();
+			System.out.println("----- " + rows + "auto_increment = 1 -----");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			// 깔끔하게 자원 해제
+			DBConnection.close(pstmt, conn);
+		}
+	}
+
+	public void insertEmployee(String EmpName, String Dept, String HireDate, int Salary) {
+
+//		(1) 사원 등록: Employee 테이블에 다음 데이터를 삽입하시오.
+		String sql = "insert into Employee(EmpName, Dept, HireDate, Salary) values(?,?,?,?)";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			conn = DBConnection.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, EmpName);
+			pstmt.setString(2, Dept);
+			pstmt.setString(3, HireDate);
+			pstmt.setInt(4, Salary);
+			int rows = pstmt.executeUpdate();
+			System.out.println("----- " + rows + "행이 추가되었습니다. -----");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			// 깔끔하게 자원 해제
+			DBConnection.close(pstmt, conn);
+		}
+	}
+
+	public void selectAll() {
+		try {
+			String SQL = "select * from Employee";
+			conn = DBConnection.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+			rs = pstmt.executeQuery();
+
+			// rs 출력
+			System.out.println("----- 사원테이블의 전체데이터 확인 -----");
+			while (rs.next()) {
+
+				int no = rs.getInt("EmpNo");
+				String name = rs.getString("EmpName");
+				String dept = rs.getString("Dept");
+				String d = rs.getString("HireDate");
+				int salary = rs.getInt("Salary");
+
+				System.out
+						.print("번호:" + no + "  이름:" + name + "  부서:" + dept + "  입사날짜:" + d + "  급여:" + salary + "\n");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBConnection.close(rs, pstmt, conn);
+		}
+	}
+
+	public void selectDept(String dept) {
+		try {
+			String SQL = "select EmpNo, EmpName, Dept\r\n" + "from Employee\r\n" + "where Dept = ?";
+			conn = DBConnection.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, dept);
+			rs = pstmt.executeQuery();
+			System.out.println("---------------------------------------------");
+			System.out.println("(2) 부서가 '개발부'인 사원의 사번, 이름, 급여를 조회하시오.");
+			while (rs.next()) {
+				int no = rs.getInt("EmpNo");
+				String name = rs.getString("EmpName");
+				String d = rs.getString("Dept");
+				System.out.print("사원번호:" + no + "  사원이름:" + name + "  부서명:" + d + "\n");
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBConnection.close(rs, pstmt, conn);
+		}
+	}
+
+	public void selectSalary(int salary) {
+		try {
+			String SQL = "select EmpNo, EmpName, Dept\r\n" + "from Employee\r\n" + "where Salary >= ?";
+			conn = DBConnection.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, salary);
+			rs = pstmt.executeQuery();
+			System.out.println("---------------------------------------------");
+			System.out.println("(2)-2 급여가 3,000,000원 이상인 사원의 이름과 부서를 조회하시오.");
+			while (rs.next()) {
+
+				int no = rs.getInt("EmpNo");
+				String name = rs.getString("EmpName");
+				String d = rs.getString("Dept");
+				System.out.print("사원번호:" + no + "  사원이름:" + name + "  부서명:" + d + "\n");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBConnection.close(rs, pstmt, conn);
+		}
+	}
+
+	public void updateSalary(int salary, String name) {
+		String sql = "update Employee\r\n" + "set Salary = ?\r\n" + "where EmpName = ?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		System.out.println("(3) 이순신의 급여를 3,500,000원으로 수정하시오.");
+		try {
+			conn = DBConnection.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, salary);
+			pstmt.setString(2, name);
+			int rows = pstmt.executeUpdate();
+			System.out.println(rows + "행이 수정됨");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			// 깔끔하게 자원 해제
+			DBConnection.close(pstmt, conn);
+		}
+	}
+
+	public void deleteEmployee(int no) {
+		String sql = "delete from Employee\r\n" + "where EmpNo = ?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		System.out.println("(4) 사번이 1번인 사원의 정보를 삭제하시오.");
+		try {
+			conn = DBConnection.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, no);
+			int rows = pstmt.executeUpdate();
+			System.out.println("----- " + rows + "행이 삭제됨 -----");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			// 깔끔하게 자원 해제
+			DBConnection.close(pstmt, conn);
+		}
+	}
+
+	
+
+}

@@ -1,0 +1,51 @@
+package com.ex;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import com.conn.DBConnection;
+
+public class Ex1 {
+
+	Connection conn = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+
+	public void result() {
+
+		try {
+			String SQL = "select title, PubYear \r\n" + "from Book \r\n" + "where PubYear >=  ?";
+			conn = DBConnection.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+
+//			YEAR타입의 ? 바인딩 
+			pstmt.setString(1, "2020");
+			rs = pstmt.executeQuery();
+
+			// rs 출력
+			System.out.println("(1) 2020년 이상(>=) 출판된 도서를 검색하시오.");
+			while (rs.next()) {
+				String title = rs.getString("title");
+				System.out.print("책 제목: " + title + "\t");
+
+//				전체date를 출력
+//				Date pubYear = rs.getDate("PubYear");
+//				System.out.println("출판년도 " + pubYear);
+
+//				year만 출력
+				int year = rs.getInt("PubYear");
+				System.out.println("출판년도: " + year);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBConnection.close(rs, pstmt, conn);
+		}
+
+	}
+
+}

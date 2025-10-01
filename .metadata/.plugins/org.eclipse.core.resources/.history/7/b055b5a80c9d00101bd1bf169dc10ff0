@@ -1,0 +1,30 @@
+package com.ex;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import com.conn.DBConnection;
+
+public class Ex1 {
+	Connection conn = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+
+	public void result() {
+
+		try {
+			String SQL = "";
+			conn = DBConnection.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+			rs = pstmt.executeQuery();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBConnection.close(rs, null, null);
+		}
+
+	}
+
+}

@@ -1,0 +1,20 @@
+package com;
+
+import com.ex.ExClass;
+
+public class HRD_Employee {
+
+	public static void main(String[] args) {
+
+		ExClass exClass = new ExClass();
+		
+//		1.
+		exClass.getResult1();
+		exClass.getResult2();
+		exClass.getResult3();
+		exClass.getResult4();
+		exClass.getResult5();
+
+	}
+
+}

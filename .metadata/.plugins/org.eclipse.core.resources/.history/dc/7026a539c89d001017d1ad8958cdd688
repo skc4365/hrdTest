@@ -1,0 +1,30 @@
+package com.ex;
+
+public class ExClass {
+
+	public void getResult1() {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void getResult2() {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void getResult3() {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void getResult4() {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void getResult5() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

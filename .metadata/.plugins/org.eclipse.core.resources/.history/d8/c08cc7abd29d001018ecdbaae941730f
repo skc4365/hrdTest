@@ -1,0 +1,32 @@
+package com;
+
+import com.ex.ExClass;
+
+public class HRD_Employee {
+
+	public static void main(String[] args) {
+
+		ExClass exClass = new ExClass();
+
+//		(1) 사원 등록: Employee 테이블에 다음 데이터를 삽입하시오.
+//		exClass.insertEmployee("홍길동", "영업부", "2020-03-01", 2500000);
+//		exClass.insertEmployee("이순신", "인사부", "2019-07-15", 3200000);
+//		exClass.insertEmployee("강감찬", "개발부", "2021-01-10", 2800000);
+		exClass.selectAll();
+
+//		(2) 부서가 '개발부'인 사원의 사번, 이름, 급여를 조회하시오.
+		exClass.selectDept("개발부");
+
+//		(2)-2 급여가 3,000,000원 이상인 사원의 이름과 부서를 조회하시오.
+		exClass.selectSalary(3000000);
+
+//		(3) 이순신의 급여를 3,500,000원으로 수정하시오.
+		exClass.updateSalary(3500000, "이순신");
+		exClass.selectAll();
+
+//		(4) 사번이 1번인 사원의 정보를 삭제하시오.
+		exClass.deleteEmployee(5);
+
+	}
+
+}

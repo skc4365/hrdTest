@@ -1,0 +1,48 @@
+package com.ex;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import com.conn.DBConnection;
+
+public class Ex3 {
+
+	Connection conn = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+
+	public void result() {
+
+		try {
+			String SQL = "select b.title, r.rentDate, IFNull(r.returnDate, '') as returnDate\r\n" + "from Rental r\r\n"
+					+ "inner join Book b\r\n" + "	on r.BookID = b.BookID\r\n" + "where ReturnDate is null";
+
+			conn = DBConnection.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+
+			rs = pstmt.executeQuery();
+
+			// rs 출력
+			System.out.println("(3) 반납하지 않은 도서를 검색하시오.");
+			while (rs.next()) {
+				String title = rs.getString("title");
+				System.out.print("책 제목: " + title + "\t");
+
+				String rentDate = rs.getString("rentDate");
+				System.out.print("대출날짜: " + rentDate + "\t");
+
+				String returnDate = rs.getString("returnDate");
+				System.out.println("대출날짜: " + returnDate);
+
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBConnection.close(rs, pstmt, conn);
+		}
+
+	}
+}

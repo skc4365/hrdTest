@@ -1,0 +1,44 @@
+package com.ex;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import com.conn.DBConnection;
+
+public class Ex2 {
+
+	Connection conn = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+
+	public void result() {
+
+		try {
+			String SQL = "select b.title, m.name\r\n" + "from Rental r\r\n" + "inner join Member m\r\n"
+					+ "	on r.MemberID = m.MemberID\r\n" + "inner join Book b\r\n" + "	on r.BookID = b.BookID\r\n"
+					+ "where m.name = ?";
+			conn = DBConnection.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+
+			pstmt.setString(1, "홍길동");
+			rs = pstmt.executeQuery();
+
+			// rs 출력
+			System.out.println("(2) ‘홍길동’ 회원이 대출한 도서 목록을 출력하시오.");
+			while (rs.next()) {
+				String title = rs.getString("title");
+				System.out.println("책 제목: " + title + "\t");
+
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBConnection.close(rs, pstmt, conn);
+		}
+
+	}
+
+}

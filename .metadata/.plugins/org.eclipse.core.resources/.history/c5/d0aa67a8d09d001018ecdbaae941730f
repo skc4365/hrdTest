@@ -1,0 +1,111 @@
+package com.ex;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import com.conn.DBConnection;
+
+public class ExClass {
+	Connection conn = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+
+	public void insertEmployee(String EmpName, String Dept, String HireDate, int Salary) {
+
+		String sql = "insert into Employee(EmpName, Dept, HireDate, Salary) values(?,?,?,?)";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			conn = DBConnection.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, EmpName);
+			pstmt.setString(2, Dept);
+			pstmt.setString(3, HireDate);
+			pstmt.setInt(4, Salary);
+			int rows = pstmt.executeUpdate();
+			System.out.println("----- " + rows + "행이 추가되었습니다. -----");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			// 깔끔하게 자원 해제
+			DBConnection.close(pstmt, conn);
+		}
+	}
+
+	public void selectAll() {
+		try {
+			String SQL = "select * from Employee";
+			conn = DBConnection.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+			rs = pstmt.executeQuery();
+
+			// rs 출력
+			System.out.println("----- 사원테이블의 전체데이터 확인 -----");
+			while (rs.next()) {
+
+				int no = rs.getInt("EmpNo");
+				String name = rs.getString("EmpName");
+				String dept = rs.getString("Dept");
+				String d = rs.getString("HireDate");
+				int salary = rs.getInt("Salary");
+
+				System.out
+						.print("번호:" + no + "  이름:" + name + "  부서:" + dept + "  입사날짜:" + d + "  급여:" + salary + "\n");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBConnection.close(rs, pstmt, conn);
+		}
+	}
+
+	public void selectDept() {
+		try {
+			String SQL = "select title, PubYear \r\n" + "from Book \r\n" + "where PubYear >=  ?";
+			conn = DBConnection.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+
+//			YEAR타입의 ? 바인딩 
+			pstmt.setString(1, "2020");
+			rs = pstmt.executeQuery();
+
+			// rs 출력
+			System.out.println("(1) 2020년 이상(>=) 출판된 도서를 검색하시오.");
+			while (rs.next()) {
+				String title = rs.getString("title");
+				System.out.print("책 제목: " + title + "\t");
+
+//				전체date를 출력
+//				Date pubYear = rs.getDate("PubYear");
+//				System.out.println("출판년도 " + pubYear);
+
+//				year만 출력
+				int year = rs.getInt("PubYear");
+				System.out.println("출판년도: " + year);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBConnection.close(rs, pstmt, conn);
+		}
+	}
+
+	public void selectSalary() {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void updateSalary() {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void deleteEmployee() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

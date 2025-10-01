@@ -1,0 +1,49 @@
+show tables;
+
+create table Book(
+	BookID int,
+	Title varchar(30) not null,
+	Author varchar(30),
+	Publisher varchar(30),
+	Price int,
+	PubYear year,
+	primary key(BookID),
+	check(Price >= 0)
+);
+desc Book;
+SELECT *
+FROM information_schema.TABLE_CONSTRAINTS
+WHERE TABLE_NAME = 'Book';
+
+create table Member(
+	MemberID int,
+	Name varchar(30) not null,
+	Phone varchar(30),
+	Address varchar(30)
+);
+desc Member;
+alter table Member
+add primary key(MemberID);
+
+create table Rental(
+	RentalID char(4),
+	MemberID int,
+	BookID int,
+	RentDate Date not null,
+	ReturnDate Date null,
+	primary key(RentalID),
+	foreign key(MemberID) references Member(MemberID),
+	foreign key(BookID) references Book(BookID)
+);
+desc Rental;
+
+
+
+
+
+
+
+
+
+
+
