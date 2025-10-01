@@ -525,3 +525,243 @@ java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "t
 	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.handleSQLException(ResultSupportRunnable.java:451)
 	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.run(ResultSupportRunnable.java:172)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2025-10-01 15:02:30.934
+!MESSAGE An internal error occurred during: "select * from shopmember".
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "this.results" is null
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:834)
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:533)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.handleSQLException(ResultSupportRunnable.java:451)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.run(ResultSupportRunnable.java:172)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2025-10-01 15:27:12.762
+!MESSAGE An internal error occurred during: "create table Sale(  SaleNo int auto_i...".
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "this.results" is null
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:834)
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:533)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.handleSQLException(ResultSupportRunnable.java:451)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.run(ResultSupportRunnable.java:172)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2025-10-01 15:28:09.356
+!MESSAGE An internal error occurred during: "select * from Sale".
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "this.results" is null
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:834)
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:533)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.handleSQLException(ResultSupportRunnable.java:451)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.run(ResultSupportRunnable.java:172)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2025-10-01 15:28:20.187
+!MESSAGE An internal error occurred during: "select * from Sale".
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "this.results" is null
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:834)
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:533)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.handleSQLException(ResultSupportRunnable.java:451)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.run(ResultSupportRunnable.java:172)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2025-10-01 15:28:53.051
+!MESSAGE An internal error occurred during: "show index table Sale".
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "this.results" is null
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:834)
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:533)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.handleSQLException(ResultSupportRunnable.java:451)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.run(ResultSupportRunnable.java:172)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2025-10-01 15:29:05.565
+!MESSAGE An internal error occurred during: "show index Sale".
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "this.results" is null
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:834)
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:533)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.handleSQLException(ResultSupportRunnable.java:451)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.run(ResultSupportRunnable.java:172)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2025-10-01 15:31:44.036
+!MESSAGE An internal error occurred during: "SHOW INDEX FROM Sale".
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "this.results" is null
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:834)
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:533)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.handleSQLException(ResultSupportRunnable.java:451)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.run(ResultSupportRunnable.java:172)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2025-10-01 15:42:30.068
+!MESSAGE An internal error occurred during: "create table Sale(  SaleNo int auto_i...".
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "this.results" is null
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:834)
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:533)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.handleSQLException(ResultSupportRunnable.java:451)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.run(ResultSupportRunnable.java:172)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2025-10-01 15:56:02.578
+!MESSAGE An internal error occurred during: "create table Sale(  SaleNo int auto_i...".
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "this.results" is null
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:834)
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:533)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.handleSQLException(ResultSupportRunnable.java:451)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.run(ResultSupportRunnable.java:172)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2025-10-01 15:56:12.241
+!MESSAGE An internal error occurred during: ")".
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "this.results" is null
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:834)
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:533)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.handleSQLException(ResultSupportRunnable.java:451)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.run(ResultSupportRunnable.java:172)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2025-10-01 15:56:22.619
+!MESSAGE An internal error occurred during: "select * from Sale".
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "this.results" is null
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:834)
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:533)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.handleSQLException(ResultSupportRunnable.java:451)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.run(ResultSupportRunnable.java:172)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2025-10-01 15:57:22.734
+!MESSAGE An internal error occurred during: "create table Sale(  SaleNo int auto_i...".
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "this.results" is null
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:834)
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:533)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.handleSQLException(ResultSupportRunnable.java:451)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.run(ResultSupportRunnable.java:172)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2025-10-01 15:57:26.873
+!MESSAGE An internal error occurred during: ")".
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "this.results" is null
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:834)
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:533)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.handleSQLException(ResultSupportRunnable.java:451)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.run(ResultSupportRunnable.java:172)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2025-10-01 16:10:17.588
+!MESSAGE An internal error occurred during: "insert into ShopMember(CustName, Phon...".
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "this.results" is null
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:834)
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:533)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.handleSQLException(ResultSupportRunnable.java:451)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.run(ResultSupportRunnable.java:172)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2025-10-01 16:49:59.368
+!MESSAGE An internal error occurred during: "select s2.CustName, max(Price) as max...".
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "this.results" is null
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:834)
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:533)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.handleSQLException(ResultSupportRunnable.java:451)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.run(ResultSupportRunnable.java:172)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2025-10-01 17:01:36.658
+!MESSAGE An internal error occurred during: "insert into ShopMember(CustName, Phon...".
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "this.results" is null
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:834)
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:533)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.handleSQLException(ResultSupportRunnable.java:451)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.run(ResultSupportRunnable.java:172)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2025-10-01 17:02:23.382
+!MESSAGE An internal error occurred during: "insert into ShopMember(CustName, Phon...".
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "this.results" is null
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:834)
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:533)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.handleSQLException(ResultSupportRunnable.java:451)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.run(ResultSupportRunnable.java:172)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2025-10-01 17:02:42.505
+!MESSAGE An internal error occurred during: "insert into ShopMember(CustName, Phon...".
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "this.results" is null
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:834)
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:533)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.handleSQLException(ResultSupportRunnable.java:451)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.run(ResultSupportRunnable.java:172)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2025-10-01 17:04:18.444
+!MESSAGE An internal error occurred during: "insert into ShopMember(CustName, Phon...".
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "this.results" is null
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:834)
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:533)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.handleSQLException(ResultSupportRunnable.java:451)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.run(ResultSupportRunnable.java:172)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2025-10-01 17:06:52.132
+!MESSAGE An internal error occurred during: "insert into ShopMember(CustName, Phon...".
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "this.results" is null
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:834)
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:533)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.handleSQLException(ResultSupportRunnable.java:451)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.run(ResultSupportRunnable.java:172)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2025-10-01 17:09:46.114
+!MESSAGE An internal error occurred during: "drop table ShopMember CASCADE".
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "this.results" is null
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:834)
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:533)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.handleSQLException(ResultSupportRunnable.java:451)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.run(ResultSupportRunnable.java:172)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2025-10-01 17:10:14.841
+!MESSAGE An internal error occurred during: "drop table Sale CASCADE".
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "this.results" is null
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:834)
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:533)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.handleSQLException(ResultSupportRunnable.java:451)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.run(ResultSupportRunnable.java:172)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2025-10-01 17:16:51.987
+!MESSAGE An internal error occurred during: "insert into ShopMember(CustName, Phon...".
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "this.results" is null
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:834)
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:533)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.handleSQLException(ResultSupportRunnable.java:451)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.run(ResultSupportRunnable.java:172)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2025-10-01 17:17:08.732
+!MESSAGE An internal error occurred during: "insert into ShopMember(CustName, Phon...".
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "this.results" is null
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:834)
+	at org.mariadb.jdbc.Statement.getMoreResults(Statement.java:533)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.handleSQLException(ResultSupportRunnable.java:451)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.run(ResultSupportRunnable.java:172)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)

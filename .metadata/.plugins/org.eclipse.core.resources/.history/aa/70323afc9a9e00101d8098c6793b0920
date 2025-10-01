@@ -1,0 +1,90 @@
+show tables;
+
+-- 회원관리테이블(회원번호, 회원성명, 전화번호, 주소, 가입일자, 고객등급, 도시코드)
+drop
+create table ShopMember(
+	CustNo   int 		 primary key auto_increment,
+	CustName varchar(30) not null,
+	Phone	 varchar(13) unique,
+	Address  varchar(50),
+	JoinDate date 		 not null,
+	Grade 	 char(1) 	 check(Grade in ('A', 'B', 'C')),
+	City 	 char(2)
+);
+select * from ShopMember;
+
+-- 판매테이블(판매번호, 회원번호:ShopMember(CustNo), 단가, 수량, 금액, 상품코드)
+create table Sale(
+	SaleNo int auto_increment,
+	CustNo int,
+	PCost  int,
+	Amount int,
+	Price  int,
+	PCode  char(3),
+	constraint pk_sale primary key(SaleNo),
+	constraint fk_sale foreign key(CustNo)
+		references ShopMember(CustNo)
+		on update cascade
+		on delete set null
+);
+select * from Sale;
+
+SHOW INDEX FROM ShopMember;
+SHOW INDEX FROM Sale;
+
+-- -------------------------------------------------------------
+--(1) 회원 등록: ShopMember 테이블에 다음 데이터를 삽입하시오.
+
+insert into ShopMember(CustName, Phone, Address, JoinDate, Grade, City) 
+	values('홍길동', '010-1234-5678', '서울시 강남구', '2020-01-01', 'A', '01');
+insert into ShopMember(CustName, Phone, Address, JoinDate, Grade, City) 
+	values('이순신', '010-2222-3333', '부산시 해운대구', '2021-03-15', 'B', '02');
+insert into ShopMember(CustName, Phone, Address, JoinDate, Grade, City) 
+	values('강감찬', '010-7777-8888', '대구시 달서구', '2019-05-20', 'C', '03');
+select * from ShopMember;
+-- -------------------------------------------------------------
+--(2) 회원 조회
+--- 고객등급이 A등급인 회원의 이름, 전화번호, 가입일자를 조회.
+select CustName,  Phone, JoinDate
+from ShopMember
+where Grade = 'A';
+--- 가입일자가 2020년 이후( > 2020 )인 회원을 조회하시오.
+select *
+from ShopMember
+where year(JoinDate) > 2020;
+
+-- -------------------------------------------------------------
+--(3) 판매 등록: Sale 테이블에 삽입하시오.
+insert into Sale(CustNo, PCost, Amount, Price, PCode) 
+	values(1, 1000, 10, 10000, 'P01');
+insert into Sale(CustNo, PCost, Amount, Price, PCode) 
+	values(2, 2000, 5, 10000, 'P02');
+insert into Sale(CustNo, PCost, Amount, Price, PCode) 
+	values(3, 1500, 7, 10500, 'P03');
+insert into Sale(CustNo, PCost, Amount, Price, PCode) 
+	values(2, 1500, 7, 10500, 'P03');
+-- -------------------------------------------------------------
+--(4) 판매 조회
+--- 회원별 총 구매금액을 구하시오.
+--(출력: 회원번호, 회원성명, 총금액)
+select *
+from Sale
+group by CustNo;
+
+select *
+from Sale s
+inner join ShopMember s2
+	on s.CustNo = s2.CustNo
+group by s.CustNo;
+--- 가장 구매금액이 높은 회원의 이름과 금액을 조회하시오.
+
+
+-- -------------------------------------------------------------
+--(5) 데이터 수정 / 삭제
+--- '이순신' 회원의 등급을 A로 수정하시오.
+
+
+-- -------------------------------------------------------------
+
+
+

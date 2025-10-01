@@ -1,0 +1,37 @@
+show tables;
+
+-- 회원관리테이블(회원번호, 회원성명, 전화번호, 주소, 가입일자, 고객등급, 도시코드)
+create table ShopMember(
+	CustNo   int 		 primary key auto_increment,
+	CustName varchar(30) not null,
+	Phone	 varchar(13) unique,
+	Address  varchar(50),
+	JoinDate date 		 not null,
+	Grade 	 char(1) 	 check(Grade in ('A', 'B', 'C')),
+	City 	 char(2)
+);
+select * from ShopMember;
+
+-- 판매테이블(판매번호, 회원번호, 단가, 수량, 금액, 상품코드)
+create table Sale(
+	SaleNo int auto_increment,
+	CustNo int,
+	PCost  int,
+	Amount int,
+	Price  int,
+	PCode  char(3),
+	constraint pk_sale primary key(SaleNo),
+	constraint fk_sale foreign key(CustNo)
+		references ShopMember(CustNo)
+		on update cascade
+		on delete set null
+);
+select * from Sale;
+
+SHOW INDEX FROM ShopMember;
+SHOW INDEXES FROM ShopMember;
+SHOW KEYS FROM ShopMember;
+SHOW INDEX FROM Sale;
+
+show tables;
+

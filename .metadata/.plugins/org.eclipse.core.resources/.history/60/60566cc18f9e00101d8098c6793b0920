@@ -1,0 +1,38 @@
+show tables;
+
+-- 회원관리테이블(회원번호, 회원성명, 전화번호, 주소, 가입일자, 고객등급, 도시코드)
+create table ShopMember(
+	CustNo   int 		 primary key auto_increment,
+	CustName varchar(30) not null,
+	Phone	 varchar(13) unique,
+	Address  varchar(50),
+	JoinDate date 		 not null,
+	Grade 	 char(1) 	 check(Grade in ('A', 'B', 'C')),
+	City 	 char(2)
+);
+
+-- 판매테이블(판매번호, 회원번호, 단가, 수량, 금액, 상품코드)
+Sale (판매) 테이블
+컬럼명과 제약조건:
+SaleNo
+(판매번호, INT, PRIMARY KEY, AUTO_INCREMENT)
+CustNo
+(회원번호, INT, 외래키: ShopMember.CustNo 참조)
+PCost (단가, INT)
+Amount (수량, INT)
+Price (금액, INT)
+PCode (상품코드, CHAR(3))
+
+create table Sale(
+	SaleNo int auto_increment,
+	CustNo int,
+	PCost  int,
+	Amount int,
+	Price  int,
+	PCode  char(3),
+	constraint pk_Sale primary key(SaleNo),
+	constraint fk_CustNo foreign key(CustNo)
+		references ShopMember(CustNo);
+);
+
+
