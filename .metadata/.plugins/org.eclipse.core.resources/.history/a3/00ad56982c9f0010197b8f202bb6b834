@@ -14,6 +14,8 @@ public class ExClass {
 
 	public void deleteAll() {
 		String sql = "delete from Employee";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
 		try {
 			conn = DBConnection.getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -30,6 +32,8 @@ public class ExClass {
 
 	public void setAuto_Increment() {
 		String sql = "alter table Employee auto_increment = 1";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
 		try {
 			conn = DBConnection.getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -47,6 +51,8 @@ public class ExClass {
 
 //		(1) 사원 등록: Employee 테이블에 다음 데이터를 삽입하시오.
 		String sql = "insert into Employee(EmpName, Dept, HireDate, Salary) values(?,?,?,?)";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
 		try {
 			conn = DBConnection.getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -139,6 +145,8 @@ public class ExClass {
 
 	public void updateSalary(int salary, String name) {
 		String sql = "update Employee\r\n" + "set Salary = ?\r\n" + "where EmpName = ?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
 		System.out.println("(3) 이순신의 급여를 3,500,000원으로 수정하시오.");
 		try {
 			conn = DBConnection.getConnection();
@@ -157,6 +165,8 @@ public class ExClass {
 
 	public void deleteEmployee(int no) {
 		String sql = "delete from Employee\r\n" + "where EmpNo = ?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
 		System.out.println("(4) 사번이 1번인 사원의 정보를 삭제하시오.");
 		try {
 			conn = DBConnection.getConnection();
