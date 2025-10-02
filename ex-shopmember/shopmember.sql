@@ -37,7 +37,6 @@ SHOW INDEX FROM Sale;
 
 -- -------------------------------------------------------------
 --(1) 회원 등록: ShopMember 테이블에 다음 데이터를 삽입하시오.
-
 insert into ShopMember(CustName, Phone, Address, JoinDate, Grade, City) 
 	values('홍길동', '010-1234-5678', '서울시 강남구', '2020-01-01', 'A', '01');
 insert into ShopMember(CustName, Phone, Address, JoinDate, Grade, City) 
