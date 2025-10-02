@@ -10,7 +10,7 @@ public class HRD_Employee {
 
 //		사원테이블 데이터 전체 삭제
 		exClass.deleteAll();
-		exClass.setAuto_Increment();
+		ExClass.setAuto_Increment();
 		exClass.selectAll();
 
 //		(1) 사원 등록: Employee 테이블에 다음 데이터를 삽입하시오.

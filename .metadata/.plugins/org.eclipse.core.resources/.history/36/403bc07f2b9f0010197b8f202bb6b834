@@ -30,7 +30,7 @@ public class ExClass {
 
 	}
 
-	public void setAuto_Increment() {
+	public static void setAuto_Increment() {
 		String sql = "alter table Employee auto_increment = 1";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
